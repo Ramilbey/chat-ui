@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaPaperPlane, FaPaperclip, FaRegImage, FaAt } from "react-icons/fa";
+import { FaPaperclip, FaImage, FaAt, FaPaperPlane } from "react-icons/fa";
 import "./MessageInput.css";
 
 const MessageInput = ({ onSend }) => {
@@ -13,10 +13,6 @@ const MessageInput = ({ onSend }) => {
 
   return (
     <div className="message-input">
-      <FaAt className="icon" title="Mention someone" />
-      <FaPaperclip className="icon" title="Attach file" />
-      <FaRegImage className="icon" title="Send image" />
-
       <input
         type="text"
         placeholder="Type a message..."
@@ -25,9 +21,14 @@ const MessageInput = ({ onSend }) => {
         onKeyDown={(e) => e.key === "Enter" && handleSend()}
       />
 
-      <button onClick={handleSend} className="send-btn" title="Send message">
-        <FaPaperPlane />
-      </button>
+      <div className="message-actions">
+        <FaAt className="icon" title="Mention" />
+        <FaPaperclip className="icon" title="Attach file" />
+        <FaImage className="icon" title="Send image" />
+        <button onClick={handleSend} className="send-btn">
+          <FaPaperPlane />
+        </button>
+      </div>
     </div>
   );
 };
