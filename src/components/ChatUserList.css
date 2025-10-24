@@ -1,0 +1,7 @@
+.chat-user-list{
+    width: 250px;
+    background-color: #ffff;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
