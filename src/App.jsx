@@ -1,7 +1,7 @@
 import React from "react";
 import Sider from "./components/Sider";
 import ChatUserList from "./components/ChatUserList"
-import Group from "./components/Groups";
+import Groups from "./components/Groups";
 // import Chat from "./components/Chat"
 import "./App.css";
 
@@ -15,7 +15,7 @@ function App() {
   <div className="left-panel">
     <ChatUserList />
     <div className="spacer"></div>
-    <Group />
+    <Groups />
   </div>
 
   {/* <div className="chat-area">
