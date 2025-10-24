@@ -1,85 +1,93 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
-
-
+/* === APP CONTAINER === */
 .app-container {
   display: flex;
   height: 100vh;
   width: 100%;
+  overflow: hidden;
+  background-color: #f5f6fa;
+  font-family: 'Inter', sans-serif;
 }
 
-/* --- SIDER --- */
+/* === SIDER === */
 .sider {
   flex: 0 0 80px;
-  border-right: 1px solid #ddd;
+  background-color: #fff;
+  border-right: 1px solid #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
 }
 
-/* --- LEFT PANEL (Users + Groups) --- */
+/* === LEFT PANEL (Users + Groups) === */
 .left-panel {
   flex: 0 0 300px;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid #e6e6e6;
+  background-color: #fff;
 }
 
+/* Top: ChatUserList */
+.left-panel .chat-user-list {
+  flex: 1;
+  overflow-y: auto;
+  border-bottom: 1px solid #eee;
+}
+
+/* Small spacer */
 .left-panel .spacer {
-  height: 10px; /* or use flex-grow: 1 if you want dynamic space */
+  height: 10px;
+  background: transparent;
 }
 
-/* --- CHAT AREA --- */
+/* Bottom: Groups */
+.left-panel .groups {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #fafafa;
+  border-top: 1px solid #eee;
+}
+
+/* === CHAT AREA === */
 .chat-area {
   flex: 1;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #ddd;
+  position: relative;
+  background-color: #f9fafc;
+  border-right: 1px solid #e6e6e6;
 }
 
-/* --- USER DETAILS --- */
+/* === USER DETAILS PANEL (right side) === */
 .user-details {
-  flex: 0 0 250px;
-  background-color: #f9f9f9;
-  padding: 15px;
+  flex: 0 0 300px;
+  background-color: #ffffff;
+  border-left: 1px solid #e6e6e6;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%); /* Hidden by default */
+  position: relative;
+  z-index: 10;
 }
 
+/* When visible */
+.user-details.open {
+  transform: translateX(0);
+}
 
+/* === RESPONSIVE (mobile) === */
+@media (max-width: 992px) {
+  .left-panel {
+    flex: 0 0 200px;
+  }
 
+  .user-details {
+    flex: 0 0 250px;
+  }
+
+  .chat-area {
+    font-size: 14px;
+  }
+}

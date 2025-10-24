@@ -1,0 +1,17 @@
+.message-item {
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 60%;
+  }
+  
+  .message-item.sent {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+  }
+  
+  .message-item.received {
+    background-color: #fff;
+    align-self: flex-start;
+  }
+  

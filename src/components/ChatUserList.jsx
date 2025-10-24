@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ChatUserList.css";
 
-function ChatUserList() {
+function ChatUserList({ onSelectUser }) {  // ✅ Accept onSelectUser prop
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedUser, setSelectedUser] = useState(null);
@@ -28,6 +28,13 @@ function ChatUserList() {
     fetchUsers();
   }, []);
 
+  // ✅ Handle user click - update local state AND notify parent
+  const handleUserClick = (userId) => {
+    setSelectedUser(userId);
+    onSelectUser(userId);  // ✅ Tell App.jsx which user was selected
+    console.log('✅ User selected:', userId);
+  };
+
   if (loading) return <div className="chat-user-list">Loading Users...</div>;
 
   return (
@@ -47,7 +54,7 @@ function ChatUserList() {
           <div
             key={user.id}
             className={`user-item ${selectedUser === user.id ? "active" : ""}`}
-            onClick={() => setSelectedUser(user.id)}
+            onClick={() => handleUserClick(user.id)}  // ✅ Use new handler
           >
             <img
               src={user.profileImage || "https://via.placeholder.com/40"}
