@@ -1,0 +1,54 @@
+.message-input {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+    gap: 10px;
+  }
+  
+  .message-input .icon {
+    color: #888;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .message-input .icon:hover {
+    color: #333;
+  }
+  
+  .message-input input {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: #f5f5f5;
+    font-size: 15px;
+    outline: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .message-input input:focus {
+    background-color: #ebebeb;
+  }
+  
+  .send-btn {
+    background-color: #7269ef;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+  
+  .send-btn:hover {
+    background-color: #5d55d1;
+    transform: scale(1.05);
+  }
+  
