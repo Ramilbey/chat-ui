@@ -5,12 +5,12 @@ import "./ChatUserList.css";
 function ChatUserList() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedUser, setSelectedUser] = useState(null); // ✅ Add this state
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     async function fetchUsers() {
       try {
-        // Using AllOrigins CORS proxy
         const url =
           "https://mock-test.worthycodes.com/api/chatSystem/users/list";
         const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(
@@ -32,19 +32,30 @@ function ChatUserList() {
 
   return (
     <div className="chat-user-list">
-      {users.map((user) => (
-        <div
-          key={user.id}
-          className={`user-item ${selectedUser === user.id ? "active" : ""}`}
-          onClick={() => setSelectedUser(user.id)} // ✅ Fixed: use setSelectedUser
-        >
-          <img 
-            src={user.profileImage || "https://via.placeholder.com/40"} // ✅ Fixed: use profileImage
-            alt={user.username} // ✅ Fixed: alt should be username
-          />
-          <span>{user.username}</span> {/* ✅ Fixed: span outside img */}
-        </div>
-      ))}
+      <input
+        type="text"
+        placeholder="Search user"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="search-input"
+      />
+      {users
+        .filter((user) =>
+          user.username.toLowerCase().includes(search.toLocaleLowerCase())
+        )
+        .map((user) => (
+          <div
+            key={user.id}
+            className={`user-item ${selectedUser === user.id ? "active" : ""}`}
+            onClick={() => setSelectedUser(user.id)}
+          >
+            <img
+              src={user.profileImage || "https://via.placeholder.com/40"}
+              alt={user.username}
+            />
+            <span>{user.username}</span>
+          </div>
+        ))}
     </div>
   );
 }

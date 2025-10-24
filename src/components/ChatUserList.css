@@ -28,4 +28,14 @@
     background-color: #e8f8f5;
     border-left: 4px solid #00bfa6;
   }
-  
+  .search-input {
+    margin: 10px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  .search-input:focus {
+    border-color: #00bfa6;
+  }
+    
