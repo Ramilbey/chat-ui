@@ -1,4 +1,5 @@
 import React from "react";
+import "./SearchMessage.css"
 
 const SearchMessage = ({ onSearch }) => {
   return (

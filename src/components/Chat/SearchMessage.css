@@ -1,0 +1,39 @@
+.search-message {
+    display: flex;
+    align-items: center;
+    background-color: #f3f4f6;
+    border-radius: 25px;
+    padding: 8px 15px;
+    margin: 15px 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .search-message input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
+    color: #333;
+    padding: 5px;
+  }
+  
+  .search-message input::placeholder {
+    color: #aaa;
+  }
+  
+  .search-message .search-icon {
+    color: #666;
+    font-size: 18px;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .search-message .search-icon:hover {
+    color: #111;
+  }
+  
