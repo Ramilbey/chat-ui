@@ -22,7 +22,7 @@ function Sider() {
       </div>
 
       <div
-        className={`icon &{active == "users ? "groups" : ""}`}
+        className={`icon &{active == "groups ? "active" : ""}`}
         onClick={() => setActive("groups")}
       >
         <FaUsers size={24} />
