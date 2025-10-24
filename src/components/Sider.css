@@ -8,4 +8,19 @@
     padding: 20px 0;
     gap: 30px;
   }
+  .icon {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s, transform 0.2s;
+  }
   
+  .icon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+  .active {
+    opacity: 1;
+    color: #00bfa6;
+  }
+    
